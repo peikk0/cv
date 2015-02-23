@@ -1,0 +1,218 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.1 (9/2/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\begin{document}
+
+\hypersetup{
+    pdfauthor={Pierre Guinoiseau},
+    pdftitle={Pierre Guinoiseau -- System administrator / DevOps engineer}
+}
+
+\header{Pierre}{Guinoiseau}{System administrator / DevOps engineer} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
+30 quai Arloing
+Lyon, 69009
+France
+~
++33 6 81 10 58 96
+~
+\href{mailto:pierre@guinoiseau.eu}{pierre@guinoiseau.eu}
+\href{http://segmentationfau.lt}{http://segmentationfau.lt}
+\href{http://linkedin.com/in/pierreguinoiseau}{lnkdin://pierreguinoiseau}
+\section{languages}
+\textit{French:} mother tongue
+\textit{English:} professional working proficiency
+\textit{Spanish:} notions
+\textit{Japanese:} notions
+\section{programming}
+{\color{red} $\varheartsuit$} Ruby
+Python, Perl, PHP, C, Lua
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY
+%----------------------------------------------------------------------------------------
+
+\section{summary}
+
+6 years' experience as a Linux/Unix system administrator and DevOps engineer. \\
+\\
+Moving to Wellington, New Zealand, in August 2015, and looking for a position with new challenges!
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2010--Now}
+{HR Team / Subcontractor for M6 Web}
+{Lyon, France}
+{\emph{Linux/Unix system and network administrator / DevOps engineer} \\
+    M6 Web (\url{http://tech.m6web.fr/}), the M6 Group’s subsidiary responsible for developing new technologies, is structured around several operational platforms: websites of TV channels (M6, W9, Teva, Paris Premiere\dots), offering Catch-up TV (6play) and VOD (Pass M6), thematic web portals (clubic.com, jeuxvideo.fr, turbo.fr, deco.fr\dots), comparison shopping websites (achetezfacile.com), mobile phones with M6’s Mobile by Orange offer, and finally games and channel interactivity. \\
+\\
+Along with my 2 colleagues and a remote ops team, I'm in charge of the hosting infrastructure, spread across 2 datacenters and AWS, and the local development platform, for a total of 400+ physical and virtual heterogenous hosts. We are hosting 150+ websites and webservices, developed almost exclusively with PHP (Symfony 2) and Node.js, and running with Apache, Nginx, Varnish, MySQL, Redis, ElasticSearch, etc. We use mainly Puppet \& MCollective for our infrastructure provisioning, and Chef for OpsWorks on AWS. \\
+\\
+As we started to adopt agile methods, I focused mainly on providing developers the tools they need for it and allowing them to be as independent as possible, most notably:
+\begin{itemize}
+  \item setting up a development platform able to run 150+ development websites for 70+ developers, with multiple PHP versions and various other technologies;
+  \item migrating from SVN to Git (GitLab then GitHub Enterprise) and the tools around it;
+  \item providing a CI environment with Jenkins, recently with Docker slaves for more flexibility;
+  \item improving application monitoring with StatsD, Graphite and Grafana;
+  \item building a centralized deployment solution featuring a multi-projects and multi-stages configuration and a REST API, and also able to deploy any number of staging environments for any project. It is built with a heavily modified Capistrano 2 and a lot of custom recipes, Grape and Sidekiq.
+\end{itemize}}
+
+%------------------------------------------------
+\entry
+{2008--2010}
+{Pilot Systems}
+{Lyon \& Paris, France (telecommuting)}
+{\emph{Python/Zope/Plone developer and Linux/Unix system administrator} \\
+Pilot Systems (\url{http://www.pilotsystems.net/}) is an Open Source Integrator, specializing in Python solutions, like Zope, Plone, Django, etc. \\
+\\
+As a developer:
+\begin{itemize}
+  \item Consulting, software development and maintenance of intranet and extranet solutions for several customers, based on Zope (2.x) and Plone (2.x and 3.x);
+  \item Software maintenance on the legacy website of liberation.fr (PHP \& MySQL) and involvement in the migration to the new website, built with Django \& PostgreSQL, mainly for synchronization and migration scripts.
+\end{itemize}
+
+As a system administrator:
+\begin{itemize}
+  \item Hardware and software administration of a Debian/Xen virtual hosting infrastructure;
+  \item Migration of various services from FreeBSD 4.x/5.x hosts to Debian VMs;
+  \item Administration of DNS servers hosting several dozens of domains;
+  \item Administration of network routers and firewalls (IPTables);
+  \item Administration of OpenLDAP, MySQL and PostgreSQL servers;
+  \item Administration of VPN servers (OpenVPN);
+  \item Migration and administration on the internal multi-domains mail platform: Postfix, Cyrus IMAPD, Spamassassin, OpenLDAP authentication;
+  \item Consulting and administration on the legacy hosting platform of liberation.fr: LAMP, HAProxy;
+  \item Setup and administration of the new hosting platform for liberation.fr: Apache, Django, PostgreSQL.
+\end{itemize}}
+
+%------------------------------------------------
+\entry
+{2007--2008}
+{Eliot}
+{Voiron, France}
+{\emph{Web developer and embedded system developer -- Part-time internship} \\
+Eliot (\url{http://www.eliot-sa.com/}) designs and produces modular on-board telematic Solutions for transport (goods and passenger), logistics and industrial companies. \\
+\\
+Had 2 different missions in parallel:
+\begin{itemize}
+    \item Installed, configured and tested a proprietary mapping/routing/geocoding server (deCarta DDS), along with a few LAMP servers, and then developed a PHP API around it (it has its own proprietary protocol), to query it for map tiles, itinerary calculation and geocoding. This API would then be used in the backoffice software;
+    \item Did early testing on a next-generation on-board terminal, running on an ARM platform. Built an embedded Linux OS using OpenEmbedded, trying to keep it as light as possible while providing all the drivers and tools that would be needed to access the hardware (GPS, GPIO, CAN bus, VGA, sound, radio\dots) and run a our soon-to-be-developed software on it. Had to work closely with the hardware designer, testing and debugging device drivers and providing feedback on a each new hardware version.
+\end{itemize}}
+
+%------------------------------------------------
+\entry
+{2004--Now}
+{Personal experience}
+{Lyon, France}
+{Experimentations with various OS: Gentoo, Debian, FreeBSD, OpenBSD, HaikuOS\dots and various technologies \\
+Hosting my own services (web, mail, XMPP, DNS\dots) for my family, my friends and myself \\
+English to french documentation translation for Gentoo \\
+Helping FreeBSD and Gentoo french communities on forums and IRC, moderator on Gentoo forums from 2007 to 2011}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2007--2008}
+{Bachelor's Degree {\normalfont in Computer Science}}
+{Université Pierre Mendès-France (Grenoble II)}
+{Licence professionnelle ``Systèmes Informatiques et Logiciels''}
+%------------------------------------------------
+\entry
+{2005--2007}
+{Associate's Degree {\normalfont in Computer Science}}
+{Université Pierre Mendès-France (Grenoble II)}
+{DUT Informatique (Higher National Diploma in Technology / Computer Science)}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{skills}
+
+\begin{itemize}
+  \item \textbf{Programming languages:} Ruby, Python, Perl, PHP, C, Lua
+  \item \textbf{Operating systems:} Linux (Gentoo, Debian, Ubuntu, RedHat), {\color{red} $\varheartsuit$} FreeBSD, OpenBSD
+  \item \textbf{AWS:} EC2, S3, CloudFormation, OpsWorks
+  \item \textbf{Virtualization:} VMWare ESX(i), Xen
+  \item \textbf{Containerization:} Docker
+  \item \textbf{Web servers:} Apache, Nginx
+  \item \textbf{Web caching:} Varnish, Nginx
+  \item \textbf{HA:} KeepAlived, HAProxy
+  \item \textbf{SQL:} MySQL, PostgreSQL
+  \item \textbf{NoSQL:} Memcached, Redis, ElasticSearch
+  \item \textbf{LDAP:} OpenLDAP
+  \item \textbf{DNS:} BIND, NSD, Unbound
+  \item \textbf{Mail:} Postfix, Dovecot, Cyrus, Amavisd/Spamassassin
+  \item \textbf{Firewalling:} IPTables, PF, FortiGate
+  \item \textbf{VPN:} OpenVPN, FortiVPN
+  \item \textbf{Configuration management:} Puppet + MCollective, Chef
+  \item \textbf{CI:} Jenkins
+  \item \textbf{SCM:} Git, Mercurial, SVN
+  \item \textbf{SCM platforms:} GitLab, GitHub Enterprise
+  \item \textbf{Monitoring:} StatsD + Graphite + Grafana, Cacti, Nagios/Icinga, ipMonitor
+  \item \textbf{Backup:} BackupPC, Veeam
+  \item \textbf{Storage:} NetApp, QNAP
+  \item \textbf{Methodology:} Agile, Kanban
+  \item \textbf{Nerf warfare:} Rampage, Centurion
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{interests}
+
+Playing guitar, drumming, photography (events \& urban), longboarding, hiking
+
+%----------------------------------------------------------------------------------------
+%	REFEREES SECTION
+%----------------------------------------------------------------------------------------
+
+\section{referees}
+
+Available on request
+
+\end{document}
