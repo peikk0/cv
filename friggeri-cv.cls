@@ -51,10 +51,10 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
-\usepackage{sourcesanspro}
+\usepackage[default]{sourcesanspro}
 \newfontfamily\bodyfont[]{Source Sans Pro}
 \newfontfamily\thinfont[]{Source Sans Pro ExtraLight}
-\newfontfamily\headingfont[]{Source Sans Pro Bold}
+\newfontfamily\headingfont[]{Source Sans Pro Black}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Source Sans Pro Light}
