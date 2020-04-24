@@ -1,288 +1,236 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Friggeri Resume/CV
-% XeLaTeX Template
-% Version 1.1 (9/2/15)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Adrien Friggeri (adrien@friggeri.net)
-% https://github.com/afriggeri/CV
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important notes:
-% This template needs to be compiled with XeLaTeX and the bibliography, if used,
-% needs to be compiled with biber rather than bibtex.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!TEX TS-program = xelatex
 
-\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+\documentclass[]{friggeri-cv}
 
 \begin{document}
 
 \hypersetup{
-    pdfauthor={Pierre Guinoiseau},
-    pdftitle={Pierre Guinoiseau -- Linux/Unix Systems engineer / DevOps engineer}
+  pdfauthor={Pierre Guinoiseau},
+  pdftitle={Pierre Guinoiseau --- Site Reliability Engineer}
 }
 
-\header{Pierre}{Guinoiseau}{Linux/Unix Systems engineer / DevOps engineer} % Your name and current job title/field
+\header{Pierre Guinoiseau}
+       {Site Reliability Engineer}
 
-%----------------------------------------------------------------------------------------
-%	SIDEBAR SECTION
-%----------------------------------------------------------------------------------------
 
-\begin{aside} % In the aside, each new line forces a line break
-\section{contact}
-116/72 Tory St,
-Te Aro,
-Wellington, 6011
-New Zealand
-~
-+64 29 126 7846
-~
-\href{mailto:pierre@guinoiseau.eu}{pierre@guinoiseau.eu}
-\href{https://segmentationfau.lt}{https://segmentationfau.lt}
-\href{https://linkedin.com/in/pierreguinoiseau}{linkedin://pierreguinoiseau}
-\section{languages}
-\textit{French:} mother tongue
-\textit{English:} fluent
-(IELTS: 7.0)
-\textit{Spanish:} notions
-\section{programming}
-{\color{red} $\varheartsuit$} Ruby
-Python, Perl, PHP, C, Lua
+
+% In the aside, each new line forces a line break
+\begin{aside}
+  \section{contact}
+    \href{mailto:pierre@guinoiseau.nz}{pierre@guinoiseau.nz}
+    +64 29 126 7846
+    \href{https://linkedin.com/in/pierreguinoiseau}{linkedin://pierreguinoiseau}
+  \section{languages}
+    \textit{French:} native
+    \textit{English:} fluent
+    \textit{Spanish:} notions
+    \textit{Te Reo Māori:} learning
+  \section{programming}
+    Go, Python, {\color{red} $\varheartsuit$} Ruby
 \end{aside}
 
-%----------------------------------------------------------------------------------------
-%	SUMMARY
-%----------------------------------------------------------------------------------------
+
 
 \section{summary}
 
-29 years old, 10+ years experience as a Linux/Unix systems engineer, DevOps engineer and Ruby/Python developer. \\
+32 years old, 12+ years experience as a Linux/Unix systems engineer, Site
+Reliability Engineer / DevOps engineer and Go, Python, Ruby developer.
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
+
 
 \section{experience}
 
 \begin{entrylist}
-%------------------------------------------------
-\entry
-{2015--now}
-{Catalyst IT}
-{Wellington, New Zealand}
-{\emph{DevOps engineer / PHP and Python developer} \\
-Catalyst (\url{https://catalyst.net.nz/}) is a global team of skilled open
-    source technologists, specializing in developing, designing and supporting
-    enterprise grade systems using open source technologies. \\
-\\
-I work in the eLearning team, delivering, customizing and hosting Moodle
-    (\url{https://moodle.org/}) and Totara (\url{https://www.totaralms.com/})
-    sites for schools, universities, corporations and government organisations.
-    My job consists in building and maintaining our CI and deployment tools and
-    helping with infrastructure changes, using notably Ansible, GoCD, Docker,
-    RabbitMQ, Nginx and PostgreSQL, as well as doing some backend development
-    on those sites. I have also done some development on PaCT
-    (\url{https://pactinfo.education.govt.nz/}), built using Django.
-}
 
-%------------------------------------------------
-\entry
-{2010--2015}
-{HR Team / Subcontractor for M6 Web}
-{Lyon, France}
-{\emph{Linux/Unix systems engineer / DevOps engineer} \\
-M6 Web (\url{http://tech.m6web.fr/}), the M6 Group’s subsidiary responsible for
-    developing new technologies, is structured around several operational
-    platforms: websites of TV channels (M6, W9, Teva, Paris Premiere\dots),
-    offering Catch-up TV (6play) and VOD (Pass M6), thematic web portals
-    (clubic.com, jeuxvideo.fr, turbo.fr, deco.fr\dots), comparison shopping
-    websites (achetezfacile.com), mobile phones with M6’s Mobile by Orange
-    offer, and finally games and channel interactivity. \\
-\\
-Along with my 2 colleagues and a remote ops team, I'm in charge of the hosting
-    infrastructure, spread across 2 datacenters and AWS, and the local
-    development platform, for a total of 400+ physical and virtual heterogenous
-    hosts. We are hosting 150+ websites and webservices, developed almost
-    exclusively with PHP (Symfony 2) and Node.js, and running with Apache,
-    Nginx, Varnish, MySQL, Redis, ElasticSearch, etc. We use mainly Puppet \&
-    MCollective for our infrastructure provisioning, and Chef for OpsWorks on
-    AWS. \\
-\\
-As we started to adopt agile methods, I focused mainly on providing developers
-    the tools they need for it and allowing them to be as independent as
-    possible, most notably:
-\begin{itemize}
-  \item setting up a development platform able to run 150+ development websites
-      for 70+ developers, with multiple PHP versions and various other
-      technologies;
-  \item migrating from SVN to Git (GitLab then GitHub Enterprise) and the tools
-      around it;
-  \item providing a CI environment with Jenkins, recently with Docker slaves
-      for more flexibility;
-  \item improving application monitoring with StatsD, Graphite and Grafana;
-  \item building a centralized deployment solution featuring a multi-projects
-      and multi-stages configuration and a REST API, and also able to deploy
-      any number of staging environments for any project. It is built with a
-      heavily modified Capistrano 2 and a lot of custom recipes, Grape and
-      Sidekiq.
-\end{itemize}}
+  \entry
+    {2018--2020}
+    {Magic Leap}
+    {Wellington, New Zealand}
+    {
+      \textit{Lead Site Reliability Engineer} \\
+      \\
+      Magic Leap, Inc. is an American startup company that released a
+      head-mounted virtual retinal display, called Magic Leap One, which
+      superimposes 3D computer-generated imagery over real world objects, by
+      ``projecting a digital light field into the user's eye'', involving
+      technologies potentially suited to applications in augmented reality and
+      computer vision. \\
+      \\
+      As a Lead Site Reliability Engineer, I worked as part of the Ecosystem
+      team to ensure the safe, swift, and reliable delivery of services to
+      the company's customers. My role combined software and systems
+      engineering to deliver highly scalable, distributed, fault tolerant
+      systems.
+      \\
+      My responsabilities included:
+      \begin{itemize}
+        \item developing solutions to increase service stability through
+              automation and process re-engineering;
+        \item building and supporting tools and systems that software engineers
+              use to deploy their software into production;
+        \item participating in rotating on-call duties in a global
+              24$\times$7$\times$365 team;
+        \item updating job knowledge by studying state-of-the-art tools and
+              techniques;
+        \item helping development teams operationalize their efforts to enable
+              self-ownership of production services.
+      \end{itemize}
+    }
 
-%------------------------------------------------
-\entry
-{2008--2010}
-{Pilot Systems}
-{Lyon \& Paris, France (telecommuting)}
-{\emph{Python/Zope/Plone developer and Linux/Unix system administrator} \\
-Pilot Systems (\url{https://www.pilotsystems.net/}) is an Open Source
-    Integrator, specializing in Python solutions, like Zope, Plone, Django,
-    etc. \\
-\\
-As a developer:
-\begin{itemize}
-  \item Consulting, software development and maintenance of intranet and
-      extranet solutions for several customers, based on Zope (2.x) and Plone
-      (2.x and 3.x);
-  \item Software maintenance on the legacy website of liberation.fr (PHP \&
-      MySQL) and involvement in the migration to the new website, built with
-      Django \& PostgreSQL, mainly for synchronization and migration scripts.
-\end{itemize}
+  \entry
+    {2015--2018}
+    {Catalyst IT}
+    {Wellington, New Zealand}
+    {
+      \textit{DevOps engineer / PHP and Python developer} \\
+      \\
+      Catalyst IT is a global team of skilled open source technologists,
+      specializing in developing, designing and supporting enterprise grade
+      systems using open source technologies. \\
+      \\
+      As a DevOps engineer, I've worked in the eLearning team, delivering,
+      customizing and hosting Moodle and Totara LMS sites for schools,
+      universities, corporations and government organisations. My role
+      consisted in building and maintaining our CI and deployment tools and
+      helping with infrastructure changes, as well as doing some backend
+      development on those sites. I have also helped with some web development
+      on PaCT (Progress and Consistency Tool), built with Django.
+    }
 
-As a system administrator:
-\begin{itemize}
-  \item Hardware and software administration of a Debian/Xen virtual hosting
-      infrastructure;
-  \item Migration of various services from FreeBSD 4.x/5.x hosts to Debian VMs;
-  \item Administration of DNS servers hosting several dozens of domains;
-  \item Administration of network routers and firewalls (IPTables);
-  \item Administration of OpenLDAP, MySQL and PostgreSQL servers;
-  \item Administration of VPN servers (OpenVPN);
-  \item Migration and administration on the internal multi-domains mail
-      platform: Postfix, Cyrus IMAPD, Spamassassin, OpenLDAP authentication;
-  \item Consulting and administration on the legacy hosting platform of
-      liberation.fr: LAMP, HAProxy;
-  \item Setup and administration of the new hosting platform for liberation.fr:
-      Apache, Django, PostgreSQL.
-\end{itemize}}
+  \entry
+    {2010--2015}
+    {HR Team / Subcontractor for M6 Web}
+    {Lyon, France}
+    {
+      \textit{Linux/Unix systems engineer / DevOps engineer} \\
+      \\
+      M6 Web, the M6 Group’s subsidiary responsible for developing new
+      technologies, is structured around several operational platforms:
+      websites of TV channels (M6, W9, Teva, Paris Premiere\dots), offering
+      Catch-up TV (6play) and VOD (Pass M6), thematic web portals (clubic.com,
+      jeuxvideo.fr, turbo.fr, deco.fr\dots), comparison shopping websites
+      (achetezfacile.com), mobile phones with M6’s Mobile by Orange offer, and
+      finally games and channel interactivity. \\
+      \\
+      As a member of a small Linux/Unix systems engineering team working
+      together with a remote ops team, I was in charge of the hosting
+      infrastructure, spread across 2 datacenters and AWS, and the local
+      development platform, for a total of 400+ physical and virtual
+      heterogenous hosts hosting 150+ websites and webservices. \\
+      \\
+      As we started to adopt agile methods, I focused mainly on providing
+      developers an environment and tools that would enable them to develop and
+      deploy their products in an automated, fast and reliable way.
+    }
 
-%------------------------------------------------
-\entry
-{2007--2008}
-{Eliot}
-{Voiron, France}
-{\emph{Web developer and embedded system developer -- Part-time internship} \\
-Eliot (\url{http://eliot-sa.com/}) designs and produces modular on-board
-telematic Solutions for transport (goods and passenger), logistics and
-industrial companies. \\
-\\
-Had 2 different missions in parallel:
-\begin{itemize}
-    \item Installed, configured and tested a proprietary
-        mapping/routing/geocoding server (deCarta DDS), along with a few LAMP
-        servers, and then developed a PHP API around it (it has its own
-        proprietary protocol), to query it for map tiles, itinerary calculation
-        and geocoding. This API would then be used in the backoffice software;
-    \item Did early testing on a next-generation on-board terminal, running on
-        an ARM platform. Built an embedded Linux OS using OpenEmbedded, trying
-        to keep it as light as possible while providing all the drivers and
-        tools that would be needed to access the hardware (GPS, GPIO, CAN bus,
-        VGA, sound, radio\dots) and run a our soon-to-be-developed software on
-        it. Had to work closely with the hardware designer, testing and
-        debugging device drivers and providing feedback on a each new hardware
-        version.
-\end{itemize}}
+  \entry
+    {2008--2010}
+    {Pilot Systems}
+    {Lyon \& Paris, France (remote work)}
+    {
+        \textit{Python/Zope/Plone developer and Linux/Unix system
+                administrator} \\
+        \\
+        Pilot Systems is an Open Source Integrator, specializing in Python
+        solutions, like Zope, Plone, Django, etc. \\
+        \\
+        As a developer, I have worker on the development and maintenance of
+        intranet and extranet solutions for several customers, based on Zope
+        (2.x) and Plone (2.x and 3.x), as well as the maintenance and a major
+        migration of a major French newspaper's website. \\
+        \\
+        As a system administrator, I maintained and modernized the company's
+        hosting infrastructure, and provided systems engineering consulting for
+        some customers.
+    }
 
-%------------------------------------------------
-\entry
-{2004--Now}
-{Personal experience}
-{Lyon, France -- Wellington, New Zealand}
-{Experimentations with various OS: Gentoo, Debian, FreeBSD, OpenBSD,
-HaikuOS\dots and various technologies \\
-Hosting my own services (web, mail, XMPP, DNS\dots) for my family, my friends
-and myself \\
-English to French documentation translation for Gentoo Linux \\
-Helping FreeBSD and Gentoo French communities on forums and IRC, moderator on
-Gentoo forums from 2007 to 2011}
-%------------------------------------------------
+  \entry
+    {2007--2008}
+    {Eliot}
+    {Voiron, France}
+    {
+        \textit{Web developer and embedded system developer --- Part-time
+        internship} \\
+        \\
+        Eliot designs and produces modular on-board telematic Solutions for
+        transport (goods and passenger), logistics and industrial companies. \\
+        \\
+        As an student intern, I had 2 different missions in parallel:
+        \begin{itemize}
+          \item developed an API around a proprietary mapping, routing and
+                geocoding server (deCarta DDS) that could be used in a
+                backoffice software;
+          \item tested a next-generation on-board terminal running Embedded
+                Linux OS on an ARM platform.
+        \end{itemize}
+    }
+
 \end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
+
 
 \section{education}
 
 \begin{entrylist}
-%------------------------------------------------
+
 \entry
-{2007--2008}
-{Bachelor's Degree {\normalfont in Computer Science}}
-{Université Pierre Mendès-France (Grenoble II)}
-{Licence professionnelle ``Systèmes Informatiques et Logiciels''}
-%------------------------------------------------
+  {2007--2008}
+  {Bachelor's Degree {\normalfont in Computer Science}}
+  {Université Pierre Mendès-France (Grenoble II)}
+  {
+    Licence professionnelle ``Systèmes Informatiques et Logiciels''
+    (Information Systems and Softwares)
+  }
+
 \entry
-{2005--2007}
-{Associate's Degree {\normalfont in Computer Science}}
-{Université Pierre Mendès-France (Grenoble II)}
-{DUT Informatique (Higher National Diploma in Technology / Computer Science)}
-%------------------------------------------------
+  {2005--2007}
+  {Associate's Degree {\normalfont in Computer Science}}
+  {Université Pierre Mendès-France (Grenoble II)}
+  {
+    DUT Informatique (Higher National Diploma in Technology / Computer
+    Science)
+  }
+
 \end{entrylist}
 
-\newpage
 
-%----------------------------------------------------------------------------------------
-%	SKILLS SECTION
-%----------------------------------------------------------------------------------------
 
 \section{skills}
 
 \begin{itemize}
-  \item \textbf{Programming languages:} Ruby, Python, Perl, PHP, C, Lua
-  \item \textbf{Operating systems:} Linux (Gentoo, Debian, Ubuntu, RedHat), {\color{red} $\varheartsuit$} FreeBSD, OpenBSD
-  \item \textbf{AWS:} EC2, S3, CloudFormation, OpsWorks
-  \item \textbf{Virtualization:} VMWare ESX(i), Xen
-  \item \textbf{Containerization:} Docker
-  \item \textbf{Web servers:} Apache, Nginx
-  \item \textbf{Web caching:} Varnish, Nginx
-  \item \textbf{HA:} KeepAlived, HAProxy
-  \item \textbf{SQL:} MySQL, PostgreSQL
-  \item \textbf{NoSQL:} Memcached, Redis, ElasticSearch
-  \item \textbf{LDAP:} OpenLDAP
-  \item \textbf{DNS:} BIND, NSD, Unbound
-  \item \textbf{Mail:} Postfix, Dovecot, Cyrus, Amavisd/Spamassassin
-  \item \textbf{Firewalling:} IPTables, PF, FortiGate
-  \item \textbf{VPN:} OpenVPN, FortiVPN
-  \item \textbf{Configuration management:} Puppet + MCollective, Chef, Ansible
-  \item \textbf{CI:} Jenkins, GoCD
-  \item \textbf{SCM:} Git, Mercurial, SVN
-  \item \textbf{SCM platforms:} GitLab, GitHub Enterprise
-  \item \textbf{Monitoring:} StatsD + Graphite + Grafana, Cacti, Nagios/Icinga, ipMonitor
-  \item \textbf{Backup:} BackupPC, Veeam
-  \item \textbf{Storage:} NetApp, QNAP
-  \item \textbf{Methodology:} Agile, Kanban
-  \item \textbf{Nerf warfare:} Rampage, Centurion
+  \item \textbf{Programming languages:}
+        Go, Python, {\color{red} $\varheartsuit$} Ruby
+  \item \textbf{Operating systems:}
+        Linux (Gentoo, Debian, Ubuntu, RedHat), {\color{red} $\varheartsuit$} FreeBSD, OpenBSD
+  \item \textbf{Cloud computing platforms:}
+        AWS, GCP
+  \item \textbf{Virtualization:}
+        VMWare ESX(i), Xen
+  \item \textbf{Infrastructure as Code:}
+        CloudFormation, Terraform
+  \item \textbf{Containerization:}
+        Docker
+  \item \textbf{Configuration management:}
+        Puppet + MCollective, Chef, Ansible
+  \item \textbf{CI:}
+        {\color{red} $\varheartsuit$} Gitlab CI, Bitbucket Pipelines, Concourse, Jenkins, GoCD
+  \item \textbf{SCM platforms:}
+        {\color{red} $\varheartsuit$} GitLab, GitHub, Bitbucket
+  \item \textbf{Logging, monitoring:}
+        Datadog, Sentry, SumoLogic, Prometheus, StatsD + Graphite + Grafana,
+        Cacti, Nagios/Icinga
 \end{itemize}
 
-%----------------------------------------------------------------------------------------
-%	INTERESTS SECTION
-%----------------------------------------------------------------------------------------
+
 
 \section{interests}
 
-Playing guitar, drumming, photography (events \& urban), longboarding, hiking, Wing Tsun, Muay Thai
+Playing guitar, drumming, photography, longboarding, hiking, martial arts\dots
 
-%----------------------------------------------------------------------------------------
-%	REFEREES SECTION
-%----------------------------------------------------------------------------------------
+
 
 \section{referees}
 
-Available on request
+Available on request.
 
 \end{document}

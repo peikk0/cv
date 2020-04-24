@@ -7,8 +7,8 @@
 }
 \ProcessOptions\relax
 \LoadClass{article}
-\usepackage{enumitem,changepage}
 
+\RequirePackage{enumitem}
 
 %%%%%%%%%%
 % Colors %
@@ -49,17 +49,15 @@
 %%%%%%%%%
 
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage{unicode-math}
+\defaultfontfeatures{Mapping=tex-text}
 
-\usepackage[default]{sourcesanspro}
-\newfontfamily\bodyfont[]{Source Sans Pro}
-\newfontfamily\thinfont[]{Source Sans Pro ExtraLight}
+\newfontfamily\titlefont[]{Source Sans Pro}
 \newfontfamily\headingfont[]{Source Sans Pro Black}
 
-\defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Source Sans Pro Light}
 
-%\setmathfont{XITS Math}
+% \setmathfont{XITS Math}
 
 %%%%%%%%%%
 % Header %
@@ -69,20 +67,20 @@
 
 \newcommand{\rolefont}{%
   \fontsize{14pt}{24pt}\selectfont%
-  \thinfont%
+  \titlefont%
   \color{white}%
 }
 
-\newcommand{\header}[3]{%
+\newcommand{\header}[2]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{72pt}\color{header}%
-      {\thinfont #1}{\bodyfont  #2}
+        \fontsize{32pt}{48pt}\color{header}%
+        \titlefont \scshape #1%
     };
     \node [anchor=north] at (name.south) {%
       \fontsize{14pt}{24pt}\color{header}%
-      \thinfont #3%
+      \titlefont #2%
     };
   \end{tikzpicture}
   \vspace{2.5cm}
@@ -129,29 +127,27 @@
 
 \pagestyle{empty}
 
-
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
 
+\RequirePackage{longtable}
+\RequirePackage{tabu}
+
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
+  \begin{longtabu} to \textwidth {@{\extracolsep{\fill}}Xl}
 }{%
+  \end{longtabu}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  \parbox[t]{2.0cm} {%
-    #1
-  }
-  \hfill
-  \parbox[t]{11.8cm}{%
+  #1&\parbox[t]{0.85\textwidth}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}
-  }
-  \begin{adjustwidth}{2.2cm}{0cm}
-    #4
-  \end{adjustwidth}
+    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    #4%
+  }\vspace{\parsep}\\%
 }
 
 
@@ -176,137 +172,6 @@
   \end{textblock}
   \let\section\oldsection
 }
-
-%%%%%%%%%%%%%%%%
-% Bibliography %
-%%%%%%%%%%%%%%%%
-
-% \RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
-%
-% \DeclareFieldFormat[article]{title}{#1\par}
-% \DeclareFieldFormat[book]{title}{#1\par}
-% \DeclareFieldFormat[inproceedings]{title}{#1\par}
-% \DeclareFieldFormat[misc]{title}{#1\par}
-% \DeclareFieldFormat[report]{title}{#1\par}
-%
-% \DeclareBibliographyDriver{article}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \usebibmacro{journal+issuetitle}%
-%     \setunit{\space}%
-%     \printfield{pages}%
-%     \newunit%
-%     \printlist{publisher}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{book}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printlist{publisher}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{note}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-%
-% \DeclareBibliographyDriver{inproceedings}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}%
-%     \printfield{booktitle}%
-%     \setunit{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{misc}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printfield{booktitle}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{note}%
-%     \setunit*{\addcomma\space}%
-%     \printfield{year}%
-%     \setunit{\addcomma\space}%
-%     \printlist{location}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareBibliographyDriver{report}{%
-%   \printfield{title}%
-%   \newblock%
-%   \printnames{author}%
-%   \par%
-%   \newblock%
-%   {%
-%     \footnotesize\addfontfeature{Color=lightgray}\itshape%
-%     \printfield{type}%
-%     \setunit{\space}%
-%     \printfield{number}%
-%     \setunit{\addcomma\space}%
-%     \printfield{year}%
-%     \newunit%
-%   }
-%   \par\vspace{0.3\baselineskip}
-% }
-%
-% \DeclareNameFormat{author}{%
-%   \small\addfontfeature{Color=lightgray}%
-%   \ifblank{#3}{}{#3\space}#1%
-%   \ifthenelse{\value{listcount}<\value{liststop}}
-%     {\addcomma\space}
-%     {}%
-% }
-%
-% \newcommand{\printbibsection}[2]{
-%   \begin{refsection}
-%     \nocite{*}
-%     \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
-%   \end{refsection}
-% }
-%
-% \DeclareSortingScheme{chronological}{
-%   \sort[direction=descending]{\field{year}}
-%   \sort[direction=descending]{\field{month}}
-% }
-
-
 
 %%%%%%%%%%%%%%%%
 % Other tweaks %
