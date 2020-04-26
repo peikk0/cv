@@ -1,12 +1,15 @@
 NAME=cv
 TEXFILE=$(NAME).tex
+AUXFILE=$(NAME).tex
 PDFFILE=$(NAME).pdf
 
 default: $(PDFFILE)
 
-$(PDFFILE): $(TEXFILE) friggeri-cv.cls
+$(PDFFILE): $(TEXFILE) $(AUXFILE) friggeri-cv.cls
 	xelatex $(TEXFILE)
 
+$(AUXFILE): $(TEXFILE) friggeri-cv.cls
+	xelatex $(TEXFILE)
 
 clean:
 	rm -f *.aux *.log *.out *.bcf *.xml

@@ -52,12 +52,9 @@
 \RequirePackage{unicode-math}
 \defaultfontfeatures{Mapping=tex-text}
 
-\newfontfamily\titlefont[]{Source Sans Pro}
-\newfontfamily\headingfont[]{Source Sans Pro Black}
-
-\setmainfont[Mapping=tex-text, Color=textcolor]{Source Sans Pro Light}
-
-% \setmathfont{XITS Math}
+\usepackage[default,light]{sourcesanspro}
+\def\titlefont{\sourcesanspro}
+\def\headingfont{\sourcesansproextreme}
 
 %%%%%%%%%%
 % Header %
@@ -113,7 +110,7 @@
 \renewcommand{\section}[1]{
   \par\vspace{\parskip}
   {%
-    \LARGE\headingfont\color{headercolor}%
+    \LARGE\headingfont\bfseries\color{headercolor}%
     \@sectioncolor #1%
   }
   \par\vspace{\parskip}
@@ -121,7 +118,7 @@
 
 \renewcommand{\subsection}[2]{
   \par\vspace{.5\parskip}%
-  \Large\headingfont\color{headercolor} #2%
+  \Large\headingfont\bfseries\color{headercolor} #2%
   \par\vspace{.25\parskip}%
 }
 
@@ -140,7 +137,6 @@
 }{%
   \end{longtabu}
 }
-\renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
   #1&\parbox[t]{0.85\textwidth}{%
     \textbf{#2}%
@@ -161,7 +157,7 @@
 \newenvironment{aside}{%
   \let\oldsection\section
   \renewcommand{\section}[1]{
-    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+    \par\vspace{\baselineskip}{\Large\headingfont\bfseries\color{headercolor} ##1}
   }
   \begin{textblock}{4.2}(1.5, 4.33)
   \begin{flushright}
