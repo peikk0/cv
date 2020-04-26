@@ -3,6 +3,8 @@ TEXFILE=$(NAME).tex
 AUXFILE=$(NAME).aux
 PDFFILE=$(NAME).pdf
 
+DOCKER_IMAGE=peikk0/cv-build
+
 default: $(PDFFILE)
 
 $(PDFFILE): $(TEXFILE) $(AUXFILE) friggeri-cv.cls
@@ -18,4 +20,7 @@ clean:
 mrproper: clean
 	rm -f $(PDFFILE)
 
-.PHONY: clean mrproper
+build-docker-image:
+	docker build --pull --rm --tag $(DOCKER_IMAGE) .
+
+.PHONY: clean mrproper build-docker-image
