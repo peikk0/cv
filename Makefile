@@ -1,6 +1,6 @@
 NAME=cv
 TEXFILE=$(NAME).tex
-AUXFILE=$(NAME).tex
+AUXFILE=$(NAME).aux
 PDFFILE=$(NAME).pdf
 
 default: $(PDFFILE)
@@ -8,6 +8,7 @@ default: $(PDFFILE)
 $(PDFFILE): $(TEXFILE) $(AUXFILE) friggeri-cv.cls
 	xelatex $(TEXFILE)
 
+# Because we need to build twice
 $(AUXFILE): $(TEXFILE) friggeri-cv.cls
 	xelatex $(TEXFILE)
 
