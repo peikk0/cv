@@ -1,0 +1,62 @@
+---
+stages:
+  - build-docker
+  - build
+
+.docker:
+  stage: build-docker
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  before_script:
+  - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"username\":\"${CI_REGISTRY_USER}\",\"password\":\"${CI_REGISTRY_PASSWORD}\"}}}" > /kaniko/.docker/config.json
+
+# Merge requests
+
+ci:build:docker-image:
+  extends: .docker
+  script:
+  - /kaniko/executor --context ${CI_PROJECT_DIR} --dockerfile ${CI_PROJECT_DIR}/Dockerfile --cache=true --destination ${CI_REGISTRY_IMAGE}:build-mr-${CI_MERGE_REQUEST_ID}
+  only:
+  - merge_requests
+
+ci:build:cv:
+  stage: build
+  image:
+    name: ${CI_REGISTRY_IMAGE}:build-mr-${CI_MERGE_REQUEST_ID}
+  needs:
+  - ci:build:docker-image
+  script:
+  - make
+  artifacts:
+    name: cv.pdf
+    expire_in: 1 week
+    expose_as: generated cv
+    paths:
+    - cv.pdf
+  only:
+  - merge_requests
+
+# Tags / releases
+
+build:docker-image:
+  extends: .docker
+  script:
+  - /kaniko/executor --context ${CI_PROJECT_DIR} --dockerfile ${CI_PROJECT_DIR}/Dockerfile --cache=true --destination ${CI_REGISTRY_IMAGE}:build-${CI_COMMIT_REF_NAME}
+  only:
+  - tags
+
+build:cv:
+  stage: build
+  image:
+    name: ${CI_REGISTRY_IMAGE}:build-${CI_COMMIT_REF_NAME}
+  needs:
+  - build:docker-image
+  script:
+  - make
+  artifacts:
+    name: cv.pdf
+    paths:
+    - cv.pdf
+  only:
+  - tags

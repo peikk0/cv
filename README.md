@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/peikk0/cv/badges/master/pipeline.svg)](https://gitlab.com/peikk0/cv/-/commits/master)
+
 # About
 
 This is my CV, based on [Adrien Friggeri's](https://github.com/afriggeri/CV).
@@ -6,7 +8,7 @@ This is my CV, based on [Adrien Friggeri's](https://github.com/afriggeri/CV).
 
 Copyright (C) 2012, Adrien Friggeri
 
-Copyright (C) 2015, Pierre Guinoiseau
+Copyright (C) 2015-2020, Pierre Guinoiseau
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
