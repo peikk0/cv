@@ -2,6 +2,7 @@
 stages:
   - build-docker
   - build
+  - release
 
 .docker:
   stage: build-docker
@@ -29,7 +30,6 @@ ci:build:cv:
   script:
   - make
   artifacts:
-    name: cv.pdf
     expire_in: 1 week
     expose_as: generated cv
     paths:
@@ -55,7 +55,21 @@ build:cv:
   script:
   - make
   artifacts:
-    name: cv.pdf
+    paths:
+    - cv.pdf
+  only:
+  - tags
+
+release:
+  stage: release
+  image:
+    name: python:3
+  needs:
+  - build:cv
+  script:
+  - pip3 install gitlab-release
+  - gitlab-release --link-artifact cv.pdf
+  artifacts:
     paths:
     - cv.pdf
   only:
