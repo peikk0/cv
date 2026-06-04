@@ -1,77 +1,91 @@
 ---
 stages:
-  - build-docker
   - build
+  - deploy
   - release
 
-.docker:
-  stage: build-docker
+.build:
+  stage: build
   image:
-    name: gcr.io/kaniko-project/executor:debug
+    name: ghcr.io/puppeteer/puppeteer:latest
     entrypoint: [""]
+  variables:
+    PUPPETEER_SKIP_DOWNLOAD: "true"
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
   before_script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"username\":\"${CI_REGISTRY_USER}\",\"password\":\"${CI_REGISTRY_PASSWORD}\"}}}" > /kaniko/.docker/config.json
+    - npm ci
+  script:
+    - npx resumed validate resume.json
+    - npx resumed render resume.json --theme jsonresume-theme-even --output resume.html
+    - npx resumed export resume.json --theme jsonresume-theme-even --output resume.pdf
+  artifacts:
+    paths:
+      - resume.html
+      - resume.pdf
 
 # Merge requests
 
-ci:build:docker-image:
-  extends: .docker
-  script:
-    - /kaniko/executor --context ${CI_PROJECT_DIR} --dockerfile ${CI_PROJECT_DIR}/Dockerfile --cache=true --destination ${CI_REGISTRY_IMAGE}:build-mr-${CI_MERGE_REQUEST_ID}
-  only:
-    - merge_requests
-
 ci:build:cv:
-  stage: build
-  image:
-    name: ${CI_REGISTRY_IMAGE}:build-mr-${CI_MERGE_REQUEST_ID}
-  needs:
-    - ci:build:docker-image
-  script:
-    - make
+  extends: .build
   artifacts:
     expire_in: 1 week
     expose_as: generated cv
     paths:
-      - cv.pdf
+      - resume.html
+      - resume.pdf
   only:
     - merge_requests
 
-# Tags / releases
+# Default branch
 
-build:docker-image:
-  extends: .docker
-  script:
-    - /kaniko/executor --context ${CI_PROJECT_DIR} --dockerfile ${CI_PROJECT_DIR}/Dockerfile --cache=true --destination ${CI_REGISTRY_IMAGE}:build-${CI_COMMIT_REF_NAME}
+build:cv:default:
+  extends: .build
   only:
-    - tags
+    - main
 
-build:cv:
-  stage: build
-  image:
-    name: ${CI_REGISTRY_IMAGE}:build-${CI_COMMIT_REF_NAME}
+pages:
+  stage: deploy
+  image: alpine:latest
   needs:
-    - build:docker-image
+    - build:cv:default
   script:
-    - make
+    - mkdir -p public
+    - cp resume.html public/index.html
+    - cp resume.pdf public/resume.pdf
+  pages: true
+  publish: public
+  environment:
+    name: pages
+    url: https://pierre.guinoiseau.nz
   artifacts:
     paths:
-      - cv.pdf
+      - public
+  only:
+    - main
+
+# Tags / releases
+
+build:cv:
+  extends: .build
   only:
     - tags
 
 release:
   stage: release
-  image:
-    name: python:3
+  image: python:3
   needs:
     - build:cv
   script:
     - pip3 install gitlab-release
-    - gitlab-release --link-artifact cv.pdf
+    - gitlab-release --link-artifact resume.html resume.pdf
   artifacts:
     paths:
-      - cv.pdf
+      - resume.html
+      - resume.pdf
   only:
     - tags

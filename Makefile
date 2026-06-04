@@ -1,26 +1,24 @@
-NAME=cv
-TEXFILE=$(NAME).tex
-AUXFILE=$(NAME).aux
-PDFFILE=$(NAME).pdf
+THEME = jsonresume-theme-even
+SOURCE = resume.json
 
-DOCKER_IMAGE=peikk0/cv-build
+.PHONY: default all validate render export clean
 
-default: $(PDFFILE)
+default: all
 
-$(PDFFILE): $(TEXFILE) $(AUXFILE) friggeri-cv.cls
-	xelatex $(TEXFILE)
+all: render export
 
-# Because we need to build twice
-$(AUXFILE): $(TEXFILE) friggeri-cv.cls
-	xelatex $(TEXFILE)
+validate:
+	npx resumed validate $(SOURCE)
+
+render: resume.html
+
+export: resume.pdf
+
+resume.html: $(SOURCE)
+	npx resumed render $(SOURCE) --theme $(THEME) --output $@
+
+resume.pdf: $(SOURCE)
+	npx resumed export $(SOURCE) --theme $(THEME) --output $@
 
 clean:
-	rm -f *.aux *.log *.out *.bcf *.xml
-
-mrproper: clean
-	rm -f $(PDFFILE)
-
-build-docker-image:
-	docker build --pull --rm --tag $(DOCKER_IMAGE) .
-
-.PHONY: clean mrproper build-docker-image
+	rm -f resume.html resume.pdf

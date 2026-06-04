@@ -1,0 +1,158 @@
+{
+  "basics": {
+    "name": "Pierre Guinoiseau",
+    "label": "Senior Site Reliability Engineer",
+    "email": "pierre@guinoiseau.nz",
+    "phone": "+64 29 126 7846",
+    "summary": "Senior Site Reliability Engineer with 19+ years across Linux and Unix systems, including 8 years in SRE roles, and proficient in Go, Python and Ruby. French and New Zealand dual citizen based in New Zealand, available for remote roles.",
+    "location": {
+      "countryCode": "NZ",
+      "region": "New Zealand"
+    },
+    "profiles": [
+      { "network": "LinkedIn", "username": "pierreguinoiseau", "url": "https://linkedin.com/in/pierreguinoiseau" },
+      { "network": "GitHub",   "username": "peikk0",          "url": "https://github.com/peikk0" },
+      { "network": "GitLab",   "username": "peikk0",          "url": "https://gitlab.com/peikk0" }
+    ]
+  },
+  "work": [
+    {
+      "name": "GitLab",
+      "position": "Senior Site Reliability Engineer",
+      "location": "Remote, New Zealand",
+      "startDate": "2021-06",
+      "summary": "Senior SRE on the Production Engineering team, working on the reliability, security and tooling of the infrastructure that runs GitLab.com.",
+      "highlights": [
+        "Operated and evolved the platform that runs GitLab.com, mainly on GCP, with workloads running on GKE and GCE, managed through Terraform, ArgoCD, Helm and Chef.",
+        "Led the consolidation of all Kubernetes deployments from Helmfile, Tanka and FluxCD to ArgoCD.",
+        "Built and owned a Terraform-managed registry for GitLab Infrastructure groups and projects, covering mirroring configuration between GitLab.com and internal GitLab instances, Vault integration, and the ephemeral GitLab access tokens used across the GitLab platforms.",
+        "Built and ran the HashiCorp Vault deployment used across GitLab infrastructure for secret distribution and access control.",
+        "Hardened infrastructure change management through Atlantis-based Terraform workflows and OPA policy enforcement.",
+        "Covered the APAC shift of a global AMER + EMEA + APAC follow-the-sun on-call rotation.",
+        "Mentored teammates and onboarded new joiners, sharing knowledge through pairing, training material and architecture documentation.",
+        "Embraced and promoted GitLab's CREDIT values across day-to-day work, with consistent positive recognition for collaboration, iteration and transparency."
+      ]
+    },
+    {
+      "name": "Magic Leap",
+      "position": "Lead Site Reliability Engineer",
+      "location": "Remote, New Zealand",
+      "startDate": "2018-06",
+      "endDate": "2021-06",
+      "summary": "Senior SRE on a globally distributed team supporting Magic Leap's customer-facing services, joined during the development phase of the Magic Leap One. Promoted from Senior to Lead Site Reliability Engineer in April 2020.",
+      "highlights": [
+        "Ran and improved Magic Leap's production and build platforms, both running across AWS and GCP, mostly on EC2, GCE, EKS and AWS Lambda.",
+        "Helped migrate multiple services from AWS to GCP.",
+        "Operated the platforms using Concourse CI, GitLab, GitLab CI, HashiCorp Vault and Terraform.",
+        "Lead developer on Rocket, an internal Go CLI that wrapped Terraform operations and other day-to-day workflows.",
+        "Maintained a dozen custom Terraform providers and hundreds of Terraform modules.",
+        "Ported most Terraform modules and dozens of projects from Terraform 0.11 to 0.12.",
+        "Covered the APAC shift of a global AMER + EMEA + APAC follow-the-sun on-call rotation.",
+        "Drove cost-optimisation work that reduced AWS and GCP spend."
+      ]
+    },
+    {
+      "name": "Catalyst IT",
+      "position": "DevOps Engineer",
+      "location": "Wellington, New Zealand",
+      "startDate": "2015-11",
+      "endDate": "2018-04",
+      "summary": "DevOps engineer in the eLearning team, delivering, customising and hosting Moodle and Totara LMS sites for schools, universities, corporations and government organisations.",
+      "highlights": [
+        "Built and ran a CI and deployment platform on GoCD and Ansible.",
+        "Operated the Moodle hosting infrastructure on Catalyst Cloud (OpenStack).",
+        "Contributed PHP backend development across several customer Moodle sites, building and tailoring features to client needs.",
+        "Worked on PaCT (Progress and Consistency Tool), a Django web application."
+      ]
+    },
+    {
+      "name": "M6 Web (via HR Team)",
+      "position": "Linux/Unix Systems Engineer / DevOps Engineer",
+      "location": "Lyon, France",
+      "startDate": "2010-11",
+      "endDate": "2015-07",
+      "summary": "Systems engineer in a small on-site team working alongside a remote ops team.",
+      "highlights": [
+        "Designed, built and ran the hosting infrastructure across two datacentres and AWS, totalling 400+ physical and virtual hosts serving 150+ websites and web services.",
+        "Migrated a large SVN monorepo into hundreds of Git repositories, coordinating closely with multiple development teams throughout the split.",
+        "Built a CI platform on Jenkins and Docker.",
+        "Built a centralised deployment system using Capistrano, fronted by a custom REST API in Grape and Sidekiq."
+      ]
+    },
+    {
+      "name": "Pilot Systems",
+      "position": "Python/Zope/Plone Developer and Linux/Unix System Administrator",
+      "location": "Hybrid, Lyon and Paris, France",
+      "startDate": "2008-09",
+      "endDate": "2010-07",
+      "summary": "Python developer and Linux sysadmin on a Paris-based team building and running intranet and extranet solutions for several customers.",
+      "highlights": [
+        "Built and shipped Zope and Plone applications.",
+        "Ran and migrated Libération's website (a major French newspaper).",
+        "Modernised the Xen-based hosting infrastructure."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Université Pierre Mendès-France (Grenoble II)",
+      "area": "Computer Science",
+      "studyType": "Bachelor's Degree",
+      "startDate": "2007-09",
+      "endDate": "2008-06",
+      "courses": [
+        "Licence professionnelle \"Systèmes Informatiques et Logiciels\" (Information Systems and Software)"
+      ]
+    },
+    {
+      "institution": "Université Pierre Mendès-France (Grenoble II)",
+      "area": "Computer Science",
+      "studyType": "Associate's Degree",
+      "startDate": "2005-09",
+      "endDate": "2007-06",
+      "courses": [
+        "DUT Informatique (Higher National Diploma in Technology, Computer Science)"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Site Reliability Engineering",
+      "level": "Senior",
+      "keywords": [
+        "SLI/SLO/error budgets",
+        "Incident response",
+        "On-call",
+        "Observability",
+        "Capacity planning",
+        "Cost optimisation",
+        "Reliability engineering",
+        "Change management"
+      ]
+    },
+    { "name": "Cloud platforms", "keywords": ["GCP", "AWS"] },
+    { "name": "Containers and orchestration", "keywords": ["Kubernetes", "GKE", "EKS", "Helm", "Docker"] },
+    { "name": "Networking and edge", "keywords": ["Nginx", "HAProxy", "Cloudflare", "Istio"] },
+    { "name": "GitOps and continuous delivery", "keywords": ["ArgoCD", "FluxCD", "GitLab CI", "Atlantis"] },
+    { "name": "Infrastructure as Code", "keywords": ["Terraform", "OpenTofu", "CloudFormation"] },
+    { "name": "Configuration management", "keywords": ["Chef", "Ansible"] },
+    { "name": "Observability and monitoring", "keywords": ["Prometheus", "Thanos", "Mimir", "Grafana", "Fluentd", "Datadog", "Sentry"] },
+    { "name": "Policy and security", "keywords": ["OPA", "HashiCorp Vault", "Cloudflare WAF"] },
+    { "name": "Programming", "keywords": ["Go", "Python", "Ruby", "JavaScript", "Jsonnet", "Bash"] },
+    { "name": "Operating systems", "keywords": ["Linux (Debian, Ubuntu, Red Hat, Arch, Gentoo)", "FreeBSD", "OpenBSD"] }
+  ],
+  "languages": [
+    { "language": "French",  "fluency": "Native speaker" },
+    { "language": "English", "fluency": "Fluent" },
+    { "language": "Spanish", "fluency": "Basic" }
+  ],
+  "interests": [
+    { "name": "Guitar" },
+    { "name": "Drums" },
+    { "name": "Photography" },
+    { "name": "Longboarding" },
+    { "name": "Hiking" },
+    { "name": "Martial arts" },
+    { "name": "LEGO" }
+  ]
+}

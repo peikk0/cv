@@ -1,17 +1,42 @@
-[![pipeline status](https://gitlab.com/peikk0/cv/badges/master/pipeline.svg)](https://gitlab.com/peikk0/cv/-/commits/master)
+[![pipeline status](https://gitlab.com/peikk0/cv/badges/main/pipeline.svg)](https://gitlab.com/peikk0/cv/-/commits/main)
 
 # About
 
-This is my CV, based on [Adrien Friggeri's](https://github.com/afriggeri/CV).
+This is my CV, written as a [JSON Resume](https://jsonresume.org) document
+(`resume.json`) and rendered to HTML and PDF using
+[resumed](https://github.com/rbardini/resumed) with the
+[`jsonresume-theme-even`](https://github.com/rbardini/jsonresume-theme-even)
+theme.
 
-# License
+Published at <https://pierre.guinoiseau.nz/>
+(PDF: <https://pierre.guinoiseau.nz/resume.pdf>).
 
-Copyright (C) 2012, Adrien Friggeri
+# Build
 
-Copyright (C) 2015-2020, Pierre Guinoiseau
+Install dependencies:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+```sh
+npm ci
+```
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Validate the resume against the JSON Resume schema:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```sh
+npx resumed validate resume.json
+```
+
+Render to HTML:
+
+```sh
+npx resumed render resume.json \
+  --theme jsonresume-theme-even \
+  --output resume.html
+```
+
+Export to PDF (uses Puppeteer):
+
+```sh
+npx resumed export resume.json \
+  --theme jsonresume-theme-even \
+  --output resume.pdf
+```
