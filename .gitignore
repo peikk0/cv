@@ -1,6 +1,3 @@
-*.aux
-*.bcf
-*.log
-*.out
-*.pdf
-*.xml
+node_modules/
+resume.html
+resume.pdf
