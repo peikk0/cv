@@ -11,8 +11,8 @@
     },
     "profiles": [
       { "network": "LinkedIn", "username": "pierreguinoiseau", "url": "https://linkedin.com/in/pierreguinoiseau" },
-      { "network": "GitHub",   "username": "peikk0",          "url": "https://github.com/peikk0" },
-      { "network": "GitLab",   "username": "peikk0",          "url": "https://gitlab.com/peikk0" }
+      { "network": "GitHub",   "username": "peikk0",           "url": "https://github.com/peikk0" },
+      { "network": "GitLab",   "username": "peikk0",           "url": "https://gitlab.com/peikk0" }
     ]
   },
   "work": [
@@ -23,13 +23,14 @@
       "startDate": "2021-06",
       "summary": "Senior SRE on the Production Engineering team, working on the reliability, security and tooling of the infrastructure that runs GitLab.com.",
       "highlights": [
-        "Operated and evolved the platform that runs GitLab.com, mainly on GCP, with workloads running on GKE and GCE, managed through Terraform, ArgoCD, Helm and Chef.",
-        "Led the consolidation of all Kubernetes deployments from Helmfile, Tanka and FluxCD to ArgoCD.",
-        "Built and owned a Terraform-managed registry for GitLab Infrastructure groups and projects, covering mirroring configuration between GitLab.com and internal GitLab instances, Vault integration, and the ephemeral GitLab access tokens used across the GitLab platforms.",
-        "Built and ran the HashiCorp Vault deployment used across GitLab infrastructure for secret distribution and access control.",
-        "Hardened infrastructure change management through Atlantis-based Terraform workflows and OPA policy enforcement.",
+        "Operated and evolved the GitLab.com infrastructure platform, running mainly on GCP, with workloads on GKE and GCE, managed through Terraform, ArgoCD, Helm and Chef.",
+        "Built and owned the Terraform-managed registry that became the single source of truth for all GitLab Infrastructure groups, projects, mirror configuration, Vault integration and ephemeral access tokens, replacing manual configuration drift with auditable code and helping enforce shared standards.",
+        "Built and ran the central HashiCorp Vault deployment that handled secrets management and access control for GitLab, GCP and Kubernetes across the infrastructure department.",
+        "Led a platform migration that retired three legacy deployment systems (Helmfile, Tanka, FluxCD) in favour of a single ArgoCD-based GitOps workflow, cutting maintenance surface and enabling faster, safer Kubernetes deployments.",
+        "Strengthened infrastructure change safety through Atlantis-based Terraform workflows and OPA policy enforcement, reducing drift and the blast radius of risky changes.",
+        "Led the cost-optimisation work for the GCP infrastructure, including GKE node-pool migration to modern machine types, committed-use discount planning, and Kubernetes cost-visibility tooling, projected to cut spend by an estimated 60%, partly driven by a 33% node count reduction.",
         "Covered the APAC shift of a global AMER + EMEA + APAC follow-the-sun on-call rotation.",
-        "Mentored teammates and onboarded new joiners, sharing knowledge through pairing, training material and architecture documentation.",
+        "Mentored engineers and onboarded new joiners through pairing, training material and architecture documentation, strengthening the team over time.",
         "Embraced and promoted GitLab's CREDIT values across day-to-day work, with consistent positive recognition for collaboration, iteration and transparency."
       ]
     },
@@ -41,14 +42,14 @@
       "endDate": "2021-06",
       "summary": "Senior SRE on a globally distributed team supporting Magic Leap's customer-facing services, joined during the development phase of the Magic Leap One. Promoted from Senior to Lead Site Reliability Engineer in April 2020.",
       "highlights": [
-        "Ran and improved Magic Leap's production and build platforms, both running across AWS and GCP, mostly on EC2, GCE, EKS and AWS Lambda.",
-        "Helped migrate multiple services from AWS to GCP.",
-        "Operated the platforms using Concourse CI, GitLab, GitLab CI, HashiCorp Vault and Terraform.",
-        "Lead developer on Rocket, an internal Go CLI that wrapped Terraform operations and other day-to-day workflows.",
-        "Maintained a dozen custom Terraform providers and hundreds of Terraform modules.",
-        "Ported most Terraform modules and dozens of projects from Terraform 0.11 to 0.12.",
-        "Covered the APAC shift of a global AMER + EMEA + APAC follow-the-sun on-call rotation.",
-        "Drove cost-optimisation work that reduced AWS and GCP spend."
+        "Ran and improved Magic Leap's production and build platforms, both running across AWS and GCP, mostly on EC2, GCE, EKS and AWS Lambda, supporting the customer-facing services behind the Magic Leap One.",
+        "Helped migrate several services from AWS to GCP as part of a long-running shift in cloud footprint.",
+        "Built and ran the central HashiCorp Vault deployment, fully provisioned with Terraform, that handled secrets management and access control for AWS, GCP and GitLab, and later the foundation for a similar deployment at GitLab.",
+        "Lead developer on Rocket, an internal CLI tool written in Go that became the standard way SREs ran Terraform operations and day-to-day workflows, cutting toil and reducing human error.",
+        "Maintained a dozen custom Terraform providers and hundreds of Terraform modules underpinning the SRE toolchain.",
+        "Drove the Terraform 0.11 to 0.12 migration across most modules and dozens of projects, unblocking modern Terraform features for the whole organisation.",
+        "Drove cost-optimisation work that cut AWS and GCP spend by roughly a third.",
+        "Covered the APAC shift of a global AMER + EMEA + APAC follow-the-sun on-call rotation."
       ]
     },
     {
@@ -61,8 +62,7 @@
       "highlights": [
         "Built and ran a CI and deployment platform on GoCD and Ansible.",
         "Operated the Moodle hosting infrastructure on Catalyst Cloud (OpenStack).",
-        "Contributed PHP backend development across several customer Moodle sites, building and tailoring features to client needs.",
-        "Worked on PaCT (Progress and Consistency Tool), a Django web application."
+        "Contributed PHP backend work across customer Moodle sites and Django development on PaCT (Progress and Consistency Tool)."
       ]
     },
     {
@@ -75,8 +75,7 @@
       "highlights": [
         "Designed, built and ran the hosting infrastructure across two datacentres and AWS, totalling 400+ physical and virtual hosts serving 150+ websites and web services.",
         "Migrated a large SVN monorepo into hundreds of Git repositories, coordinating closely with multiple development teams throughout the split.",
-        "Built a CI platform on Jenkins and Docker.",
-        "Built a centralised deployment system using Capistrano, fronted by a custom REST API in Grape and Sidekiq."
+        "Built a CI platform on Jenkins and Docker, alongside a centralised deployment system using Capistrano, fronted by a custom REST API in Grape and Sidekiq."
       ]
     },
     {
@@ -116,30 +115,16 @@
     }
   ],
   "skills": [
-    {
-      "name": "Site Reliability Engineering",
-      "level": "Senior",
-      "keywords": [
-        "SLI/SLO/error budgets",
-        "Incident response",
-        "On-call",
-        "Observability",
-        "Capacity planning",
-        "Cost optimisation",
-        "Reliability engineering",
-        "Change management"
-      ]
-    },
-    { "name": "Cloud platforms", "keywords": ["GCP", "AWS"] },
-    { "name": "Containers and orchestration", "keywords": ["Kubernetes", "GKE", "EKS", "Helm", "Docker"] },
-    { "name": "Networking and edge", "keywords": ["Nginx", "HAProxy", "Cloudflare", "Istio"] },
-    { "name": "GitOps and continuous delivery", "keywords": ["ArgoCD", "FluxCD", "GitLab CI", "Atlantis"] },
-    { "name": "Infrastructure as Code", "keywords": ["Terraform", "OpenTofu", "CloudFormation"] },
-    { "name": "Configuration management", "keywords": ["Chef", "Ansible"] },
-    { "name": "Observability and monitoring", "keywords": ["Prometheus", "Thanos", "Mimir", "Grafana", "Fluentd", "Datadog", "Sentry"] },
-    { "name": "Policy and security", "keywords": ["OPA", "HashiCorp Vault", "Cloudflare WAF"] },
+    { "name": "Observability", "keywords": ["Prometheus", "Thanos", "Mimir", "Grafana", "Fluentd", "Datadog", "Sentry"] },
     { "name": "Programming", "keywords": ["Go", "Python", "Ruby", "JavaScript", "Jsonnet", "Bash"] },
-    { "name": "Operating systems", "keywords": ["Linux (Debian, Ubuntu, Red Hat, Arch, Gentoo)", "FreeBSD", "OpenBSD"] }
+    { "name": "Containers", "keywords": ["Kubernetes", "GKE", "EKS", "Helm", "Docker"] },
+    { "name": "GitOps & CI/CD", "keywords": ["ArgoCD", "FluxCD", "GitLab CI", "Atlantis"] },
+    { "name": "Networking", "keywords": ["Nginx", "HAProxy", "Cloudflare", "Istio"] },
+    { "name": "IaC", "keywords": ["Terraform", "OpenTofu", "CloudFormation"] },
+    { "name": "Security", "keywords": ["OPA", "HashiCorp Vault", "Cloudflare WAF"] },
+    { "name": "Cloud", "keywords": ["GCP", "AWS"] },
+    { "name": "Config management", "keywords": ["Chef", "Ansible"] },
+    { "name": "OS", "keywords": ["Linux (Debian, Ubuntu, Red Hat, Arch, Gentoo)", "FreeBSD", "OpenBSD"] }
   ],
   "languages": [
     { "language": "French",  "fluency": "Native speaker" },
