@@ -116,7 +116,7 @@
   ],
   "skills": [
     { "name": "Observability", "keywords": ["Prometheus", "Thanos", "Mimir", "Grafana", "Fluentd", "Datadog", "Sentry"] },
-    { "name": "Programming", "keywords": ["Go", "Python", "Ruby", "JavaScript", "Jsonnet", "Bash"] },
+    { "name": "Programming", "keywords": ["Go", "Python", "Ruby", "Jsonnet", "Bash"] },
     { "name": "Containers", "keywords": ["Kubernetes", "GKE", "EKS", "Helm", "Docker"] },
     { "name": "GitOps & CI/CD", "keywords": ["ArgoCD", "FluxCD", "GitLab CI", "Atlantis"] },
     { "name": "Networking", "keywords": ["Nginx", "HAProxy", "Cloudflare", "Istio"] },
