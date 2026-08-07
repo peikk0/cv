@@ -11,6 +11,7 @@ stages:
     entrypoint: [""]
   variables:
     PUPPETEER_SKIP_DOWNLOAD: "true"
+    THEME: jsonresume-theme-even
   cache:
     key:
       files:
@@ -21,8 +22,8 @@ stages:
     - npm ci
   script:
     - npx resumed validate resume.json
-    - npx resumed render resume.json --theme jsonresume-theme-even --output resume.html
-    - npx resumed export resume.json --theme jsonresume-theme-even --output resume.pdf
+    - npx resumed render resume.json --theme "${THEME}" --output resume.html
+    - npx resumed export resume.json --theme "${THEME}" --output resume.pdf
   artifacts:
     paths:
       - resume.html
