@@ -7,9 +7,6 @@ default: all
 
 all: render export
 
-update:
-	npm update --legacy-peer-deps
-
 validate:
 	npx resumed validate $(SOURCE)
 
