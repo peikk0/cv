@@ -7,7 +7,7 @@ stages:
 .build:
   stage: build
   image:
-    name: ghcr.io/puppeteer/puppeteer:latest
+    name: ghcr.io/puppeteer/puppeteer:25.5.0
     entrypoint: [""]
   variables:
     PUPPETEER_SKIP_DOWNLOAD: "true"
