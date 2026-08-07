@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "config:recommended",
+    ":disableRateLimiting"
+  ],
+  "assignAutomerge": true,
+  "assignees": ["peikk0"],
+  "labels": [
+    "dependencies"
+  ],
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "matchPackageNames": ["puppeteer", "ghcr.io/puppeteer/puppeteer"],
+      "groupName": "puppeteer"
+    }
+  ]
+}
