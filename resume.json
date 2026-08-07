@@ -21,6 +21,7 @@
       "position": "Senior Site Reliability Engineer",
       "location": "Remote, New Zealand",
       "startDate": "2021-06",
+      "endDate": "2026-08",
       "summary": "Senior SRE on the Production Engineering team, working on the reliability, security and tooling of the infrastructure that runs GitLab.com.",
       "highlights": [
         "Operated and evolved the GitLab.com infrastructure platform, running mainly on GCP, with workloads on GKE and GCE, managed through Terraform, ArgoCD, Helm and Chef.",
