@@ -11,7 +11,7 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
-      "matchPackageNames": ["puppeteer", "ghcr.io/puppeteer/puppeteer"],
+      "matchDepNames": ["puppeteer", "ghcr.io/puppeteer/puppeteer"],
       "groupName": "puppeteer"
     }
   ]
