@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "jsonresume-theme-even": "^0.26.1",
-    "resumed": "^6.1.0"
+    "resumed": "^7.0.0"
   },
   "devDependencies": {
     "puppeteer": "^25.5.0"
