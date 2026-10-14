@@ -85,7 +85,7 @@ build:cv:
 
 release:
   stage: release
-  image: python:3@sha256:ed55936fa91ebf02a0be412f9b020c1ad95eaf858985ad65753ce48e580116c9
+  image: python:3@sha256:16e7e5fc4e79fe153c818ac9b46595c7addddaad744d49595377836e300ad1c6
   needs:
     - build:cv
   script:
