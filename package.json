@@ -4,6 +4,6 @@
     "resumed": "^7.0.0"
   },
   "devDependencies": {
-    "puppeteer": "^25.5.0"
+    "puppeteer": "25.5.0"
   }
 }
