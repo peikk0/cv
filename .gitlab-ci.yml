@@ -9,7 +9,6 @@ stages:
   - test
   - build
   - deploy
-  - release
 
 .build:
   stage: build
@@ -38,7 +37,7 @@ stages:
 
 # Merge requests
 
-ci:build:cv:
+build:mr:
   extends: .build
   artifacts:
     expire_in: 1 week
@@ -51,7 +50,7 @@ ci:build:cv:
 
 # Default branch
 
-build:cv:default:
+build:
   extends: .build
   only:
     - main
@@ -60,7 +59,7 @@ pages:
   stage: deploy
   image: alpine:latest@sha256:71e9b7bae160ba167fa17414401b94cbcdaf3c32feeab9298bd794a2a0614c35
   needs:
-    - build:cv:default
+    - build
   script:
     - mkdir -p public
     - cp resume.html public/index.html
@@ -75,25 +74,3 @@ pages:
       - public
   only:
     - main
-
-# Tags / releases
-
-build:cv:
-  extends: .build
-  only:
-    - tags
-
-release:
-  stage: release
-  image: python:3@sha256:67ee282bdbe5ece1e38ea94fa68f1420e969e6176e6c826b9acc931055011bfb
-  needs:
-    - build:cv
-  script:
-    - pip3 install gitlab-release
-    - gitlab-release --link-artifact resume.html resume.pdf
-  artifacts:
-    paths:
-      - resume.html
-      - resume.pdf
-  only:
-    - tags
