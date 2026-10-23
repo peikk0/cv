@@ -14,7 +14,7 @@ stages:
 .build:
   stage: build
   image:
-    name: ghcr.io/puppeteer/puppeteer:25.5.0
+    name: ghcr.io/puppeteer/puppeteer:25.16.0@sha256:956a72e3d523c76606efaad23392fbe33950370189f749715222c7427f57392b
     entrypoint: [""]
   variables:
     PUPPETEER_SKIP_DOWNLOAD: "true"
